@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".RoleActivity">
+
+    <TextView
+        android:id="@+id/borderView"
+        android:layout_width="486dp"
+        android:layout_height="76dp"
+        android:background="@drawable/drawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="127dp"
+        android:layout_height="40dp"
+        android:text="tcs534-lab5"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/hamilton"
+        app:layout_constraintTop_toBottomOf="@id/borderView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintStart_toStartOf="@id/imageView"
+        app:layout_constraintEnd_toEndOf="@id/imageView"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/realNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert Real Name Here"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/nameTextView"
+        app:layout_constraintStart_toStartOf="@id/nameTextView"
+        app:layout_constraintEnd_toEndOf="@id/nameTextView"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/roleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Role(s):"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/realNameTextView"
+        app:layout_constraintStart_toStartOf="@id/realNameTextView"
+        app:layout_constraintEnd_toEndOf="@id/realNameTextView"
+        android:layout_marginTop="70dp" />
+
+    <TextView
+        android:id="@+id/rolesListTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Role(s)"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/roleTextView"
+        app:layout_constraintStart_toStartOf="@id/roleTextView"
+        app:layout_constraintEnd_toEndOf="@id/roleTextView"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#000000"
+        android:text="Act I"
+        app:layout_constraintTop_toBottomOf="@id/realNameTextView"
+        app:layout_constraintStart_toStartOf="@id/realNameTextView"
+        app:layout_constraintEnd_toStartOf="@id/button2"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="8dp"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#000000"
+        android:text="Act II"
+        app:layout_constraintEnd_toStartOf="@id/button3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/button1"
+        app:layout_constraintTop_toBottomOf="@id/realNameTextView" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#000000"
+        android:text="Log Out"
+        app:layout_constraintTop_toBottomOf="@id/realNameTextView"
+        app:layout_constraintStart_toEndOf="@id/button2"
+        app:layout_constraintEnd_toEndOf="@id/realNameTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="350dp"
+        android:layout_marginStart="8dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
