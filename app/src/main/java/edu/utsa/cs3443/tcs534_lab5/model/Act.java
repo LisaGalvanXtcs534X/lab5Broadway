@@ -40,12 +40,14 @@ public class Act {
     }
 
     private String extractLastName(String fullName) {
-        // Assuming the last name is the last word in the full name
-        String[] parts = fullName.split("\\s+");
-        if (parts.length > 0) {
-            return parts[parts.length - 1];
+        // Find the substring between '(' and ')', exclusive, and trim any whitespace
+        int startIndex = fullName.indexOf('(');
+        int endIndex = fullName.lastIndexOf(')');
+        if (startIndex != -1 && endIndex != -1 && startIndex < endIndex) {
+            return fullName.substring(startIndex + 1, endIndex).trim();
         } else {
-            return ""; // No last name found
+            // If parentheses are not found or they are empty, return the entire name
+            return fullName.trim();
         }
     }
 
