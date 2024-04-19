@@ -9,8 +9,6 @@ import edu.utsa.cs3443.tcs534_lab5.model.Scene;
 
 public class ActActivity extends AppCompatActivity {
 
-    private static final String TAG = "ActActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
