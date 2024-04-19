@@ -36,6 +36,8 @@ public class Act {
                 }
             }
         }
+        // Log the size of scenesForActor
+        System.out.println("Scenes for actor: " + scenesForActor.size());
         return scenesForActor;
     }
 
