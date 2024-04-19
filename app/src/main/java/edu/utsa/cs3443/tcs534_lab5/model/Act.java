@@ -28,7 +28,8 @@ public class Act {
         List<Scene> scenesForActor = new ArrayList<>();
         for (Scene scene : scenes) {
             for (Role role : scene.getRoles()) {
-                String roleLastName = extractLastName(role.getCharacterName()); // Extract last name from character name
+                String roleName = role.getCharacterName(); // Get the full role name
+                String roleLastName = extractLastName(roleName); // Extract last name from role name
                 if (actorFullName.contains(roleLastName)) {
                     scenesForActor.add(scene);
                     break; // Found a match, no need to continue searching roles in this scene
