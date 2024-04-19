@@ -52,9 +52,10 @@ public class Act {
         int startIndex = fullName.indexOf('(');
         int endIndex = fullName.lastIndexOf(')');
         if (startIndex != -1 && endIndex != -1 && startIndex < endIndex) {
+            // Return the substring without parentheses, and trim any whitespace
             return fullName.substring(startIndex + 1, endIndex).trim();
         } else {
-            // If parentheses are not found or they are empty, return the entire name
+            // If parentheses are not found or they are empty, return the entire name trimmed
             return fullName.trim();
         }
     }
