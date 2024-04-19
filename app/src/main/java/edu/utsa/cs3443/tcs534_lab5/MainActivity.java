@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, RoleActivity.class);
                     intent.putExtra("realName", loggedInUser.getRealName());
                     intent.putExtra("username", username); // Add this line
+                    intent.putExtra("passphrase", passphrase); // Add this line
                     startActivity(intent);
                 } else {
                     // Display a toast message indicating incorrect credentials

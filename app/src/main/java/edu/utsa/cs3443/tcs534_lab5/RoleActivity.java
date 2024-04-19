@@ -24,6 +24,7 @@ public class RoleActivity extends AppCompatActivity {
         // Get the realName and username passed from MainActivity
         String realName = getIntent().getStringExtra("realName");
         String username = getIntent().getStringExtra("username");
+        String passphrase = getIntent().getStringExtra("passphrase");
 
         // Find the views
         realNameTextView = findViewById(R.id.realNameTextView);
@@ -83,7 +84,8 @@ public class RoleActivity extends AppCompatActivity {
                 // Start ActActivity with act number 2
                 Intent intent = new Intent(RoleActivity.this, ActActivity.class);
                 intent.putExtra("act_number", 2);
-                intent.putExtra("realName", realName); // Pass the realName to ActActivity
+                intent.putExtra("username", username); // Add this line
+                intent.putExtra("passphrase", passphrase); // Add this line
                 startActivity(intent);
             }
         });

@@ -24,15 +24,20 @@ public class Act {
         return scenes;
     }
 
-    public List<Scene> getScenesForActor(String actorFullName) {
+    public List<Scene> getScenesForActor(List<User> users, String actorUsername, String actorPassphrase) {
         List<Scene> scenesForActor = new ArrayList<>();
         for (Scene scene : scenes) {
             for (Role role : scene.getRoles()) {
                 String roleName = role.getCharacterName(); // Get the full role name
                 String roleLastName = extractLastName(roleName); // Extract last name from role name
-                if (actorFullName.contains(roleLastName)) {
-                    scenesForActor.add(scene);
-                    break; // Found a match, no need to continue searching roles in this scene
+                // Iterate through the users and check if the actor is associated with this role
+                for (User user : users) {
+                    if (user.getUsername().equals(actorUsername) && user.getPassword().equals(actorPassphrase)) {
+                        if (user.getRoles().contains(roleLastName)) {
+                            scenesForActor.add(scene);
+                            break; // Found a match, no need to continue searching roles in this scene
+                        }
+                    }
                 }
             }
         }
@@ -40,6 +45,7 @@ public class Act {
         System.out.println("Scenes for actor: " + scenesForActor.size());
         return scenesForActor;
     }
+
 
     private String extractLastName(String fullName) {
         // Find the substring between '(' and ')', exclusive, and trim any whitespace
