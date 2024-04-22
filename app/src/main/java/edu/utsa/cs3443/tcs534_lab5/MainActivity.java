@@ -11,11 +11,35 @@ import java.util.List;
 import android.text.InputType;
 import edu.utsa.cs3443.tcs534_lab5.model.User;
 
+/**
+ * The MainActivity class represents the main login screen of the app. It allows users to input their username and passphrase to log in.
+ *
+ * @author Lisa Galvan tcs534
+ *
+ */
 public class MainActivity extends AppCompatActivity {
+
+    /**
+     * EditText field for entering the username.
+     */
     private EditText usernameEditText;
+
+    /**
+     * EditText field for entering the passphrase.
+     */
     private EditText passphraseEditText;
+
+    /**
+     * Button for initiating the login process which leads to RoleActivity.
+     */
     private Button loginButton;
 
+    /**
+     * Initializes the MainActivity when created. This method sets up the layout, initializes UI components,
+     * sets up the login process, and sets up button click listeners to launch RoleActivity.
+     *
+     * @param savedInstanceState If the activity is being re-initialized, this Bundle contains the data from the previous state. Otherwise, it is null.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +55,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = usernameEditText.getText().toString();
                 String passphrase = passphraseEditText.getText().toString();
-
-                // Read user data from users.csv
                 List<User> users = User.readUsersFromFile(getApplicationContext(), "users.csv");
 
-                // Find the logged-in user
                 User loggedInUser = null;
                 for (User user : users) {
                     if (user.validate(username, passphrase)) {
@@ -45,14 +66,13 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (loggedInUser != null) {
-                    // Pass realName and username data to RoleActivity
                     Intent intent = new Intent(MainActivity.this, RoleActivity.class);
                     intent.putExtra("realName", loggedInUser.getRealName());
-                    intent.putExtra("username", username); // Add this line
-                    intent.putExtra("passphrase", passphrase); // Add this line
+                    intent.putExtra("username", username);
+                    intent.putExtra("passphrase", passphrase);
                     startActivity(intent);
-                } else {
-                    // Display a toast message indicating incorrect credentials
+                }
+                else {
                     Toast.makeText(MainActivity.this, "Incorrect username and/or passphrase", Toast.LENGTH_SHORT).show();
                 }
             }

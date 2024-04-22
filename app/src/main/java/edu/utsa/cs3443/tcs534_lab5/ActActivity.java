@@ -8,26 +8,34 @@ import edu.utsa.cs3443.tcs534_lab5.model.Act;
 import edu.utsa.cs3443.tcs534_lab5.model.Scene;
 import edu.utsa.cs3443.tcs534_lab5.model.User;
 
+/**
+ * The ActActivity class represents the screen displaying scenes for a specific act. It retrieves act information and scenes associated with the logged-in user's roles.
+ *
+ * @author Lisa Galvan tcs534
+ *
+ */
 public class ActActivity extends AppCompatActivity {
 
+    /**
+     * Initializes the ActActivity when created. This method sets up the layout, retrieves act information,
+     * and displays scenes associated with the logged-in user's roles.
+     *
+     * @param savedInstanceState If the activity is being re-initialized, this Bundle contains the data from the previous state. Otherwise, it is null.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act);
 
-        // Get the act number and real name from the intent extras
         int actNumber = getIntent().getIntExtra("act_number", 1);
         String username = getIntent().getStringExtra("username");
         String passphrase = getIntent().getStringExtra("passphrase");
 
-        // Find the TextViews
         TextView actView = findViewById(R.id.actView1);
         TextView sceneView = findViewById(R.id.sceneView);
 
-        // Update the TextView based on the act number
         if (actNumber == 1) {
             actView.setText("Act I");
-            // Load scenes from act1.txt
             Act act = new Act(1);
             List<User> users = User.readUsersFromFile(getApplicationContext(), "users.csv");
             List<Scene> scenes = act.getScenesForActor(users, username, passphrase);
@@ -37,12 +45,13 @@ public class ActActivity extends AppCompatActivity {
                     scenesText.append(scene.getTitle()).append("\n");
                 }
                 sceneView.setText(scenesText.toString());
-            } else {
-                sceneView.setText("No Scenes");
             }
-        } else if (actNumber == 2) {
+            else {
+                sceneView.setText("No scenes");
+            }
+        }
+        else if (actNumber == 2) {
             actView.setText("Act II");
-            // Load scenes from act2.txt
             Act act = new Act(2);
             List<User> users = User.readUsersFromFile(getApplicationContext(), "users.csv");
             List<Scene> scenes = act.getScenesForActor(users, username, passphrase);
@@ -52,8 +61,9 @@ public class ActActivity extends AppCompatActivity {
                     scenesText.append(scene.getTitle()).append("\n");
                 }
                 sceneView.setText(scenesText.toString());
-            } else {
-                sceneView.setText("No Scenes");
+            }
+            else {
+                sceneView.setText("No scenes");
             }
         }
     }

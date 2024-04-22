@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
-            android:text="No scenes"
+            android:text="Insert text here"
             android:textColor="#000000"
             android:textSize="24sp" />
 
